@@ -20,10 +20,10 @@
                                 <rect key="frame" x="5" y="103" width="382" height="363"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K5k-PG-w01">
-                                <rect key="frame" x="151" y="474" width="91" height="51"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K5k-PG-w01">
+                                <rect key="frame" x="16" y="474" width="361" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -31,7 +31,7 @@
                         <viewLayoutGuide key="safeArea" id="7DM-6e-DdO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="AyV-ry-7WX"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="AyV-ry-7WX"/>
                     <connections>
                         <outlet property="avatarImageView" destination="RYR-BQ-iPP" id="hSZ-ex-yBg"/>
                         <outlet property="nameLabel" destination="K5k-PG-w01" id="e77-s9-9JV"/>
@@ -39,7 +39,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEb-Wi-V6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="4"/>
+            <point key="canvasLocation" x="1791.6030534351144" y="3.5211267605633805"/>
         </scene>
         <!--Superheroes-->
         <scene sceneID="tne-QT-ifu">
@@ -105,9 +105,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Du-fh-hHp" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7t4-v4-UZf">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7t4-v4-UZf">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="compactScrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -2,6 +2,8 @@ import Foundation
 import UIKit
 
 extension UIImageView {
+    
+    // This function allows us to load an image from a URL and display it in the UIImageView.
     func loadFrom(url: URL) {
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
