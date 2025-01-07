@@ -1,15 +1,16 @@
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+class MainViewController: UIViewController, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var list: [Superhero] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        tableView.dataSource = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
         //Creates a search controller and assigns it to navigation item's search bar.
         let searchController = UISearchController(searchResultsController: nil)
@@ -18,17 +19,39 @@ class MainViewController: UIViewController, UITableViewDataSource, UISearchBarDe
         
         findSuperheroBy(name: "a")
     }
+    
+    // MARK: CollectionViewDataSource
+
     //Determines how many rows will be in the table view.
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return list.count
     }
     
     //Creates and configures a cell for each row in the table view.
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SuperheroViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! SuperheroViewCell
         let superhero = list[indexPath.item]
         cell.render(superhero: superhero)
         return cell
+    }
+    
+    // MARK: UICollectionViewDelegate
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "navigateToDetail", sender: nil)
+    }
+    
+    // MARK: UICollectionViewDelegateFlowLayout
+
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let columns = 2
+        let spacing = (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).minimumInteritemSpacing
+        let screenWidth = collectionView.frame.size.width
+        let leftSpace = screenWidth - spacing * CGFloat(columns - 1)
+        let width = leftSpace / CGFloat(columns) //some width
+        let height = width * 1.33 //ratio
+        return CGSize(width: width, height: height)
     }
     
     //This function is called when the search button is tapped in the search bar.
@@ -41,14 +64,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UISearchBarDe
             findSuperheroBy(name: "a")
         }
     }
+    
     //This function is used for preparing data and setting up things before transitioning from one view controller to another.
     //Segue is the action that moves you from one screen to another in the app.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailViewController = segue.destination as! DetailViewController
-        let indexPath = tableView.indexPathForSelectedRow!
-        let superhero = list[indexPath.row]
+        let indexPath = collectionView.indexPathsForSelectedItems![0];        let superhero = list[indexPath.row]
         detailViewController.superhero = superhero
-        tableView.deselectRow(at: indexPath, animated: true)
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
     
     func findSuperheroBy(name: String) {
@@ -60,7 +83,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UISearchBarDe
                 
                 // Once the data is fetched, update the UI on the main thread.
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()  // Reload the table view to display the updated list.
+                    self.collectionView.reloadData()  // Reload the table view to display the updated list.
                 }
             } catch {
                 print(error)

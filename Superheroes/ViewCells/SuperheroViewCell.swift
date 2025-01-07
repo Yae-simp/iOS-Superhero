@@ -1,19 +1,18 @@
 import UIKit
 
-class SuperheroViewCell: UITableViewCell {
-
+class SuperheroViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var shadowView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        cardView.roundCorners(radius: 16)
+        shadowView.roundCorners(radius: 16, maskToBounds: false)
+        shadowView.setShadow()
     }
     
     func render(superhero: Superhero) {
