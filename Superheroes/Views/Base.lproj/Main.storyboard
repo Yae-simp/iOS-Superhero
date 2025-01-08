@@ -40,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEb-Wi-V6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791.6030534351144" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="3888" y="4"/>
         </scene>
         <!--Superheroes-->
         <scene sceneID="tne-QT-ifu">
@@ -51,7 +51,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DmT-VR-XlO">
-                                <rect key="frame" x="10" y="113" width="373" height="695"/>
+                                <rect key="frame" x="10" y="165" width="373" height="643"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="74D-UY-lP4">
                                     <size key="itemSize" width="188" height="252"/>
@@ -118,11 +118,12 @@
                     <navigationItem key="navigationItem" title="Superheroes" id="rD6-v0-iQs"/>
                     <connections>
                         <outlet property="collectionView" destination="DmT-VR-XlO" id="rmP-YS-trA"/>
+                        <segue destination="Hzp-tC-gZo" kind="show" identifier="navigateToDetail" id="agL-cE-QhH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052.6717557251909" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="2886.2595419847326" y="3.5211267605633805"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="83w-JV-Z2P">
@@ -136,12 +137,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="GV1-OX-VvF"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Y7W-jX-dpG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="liM-7l-DEc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1821" y="4"/>
         </scene>
     </scenes>
     <resources>
