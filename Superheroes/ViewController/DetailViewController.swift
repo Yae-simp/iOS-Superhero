@@ -2,13 +2,13 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     
     @IBOutlet weak var realNameLabel: UILabel!
     @IBOutlet weak var publisherLabel: UILabel!
     @IBOutlet weak var placeOfBirthLabel: UILabel!
     @IBOutlet weak var alignmentLabel: UILabel!
+    @IBOutlet weak var alterEgosLabel: UILabel!
     
     @IBOutlet weak var intelligenceLabel: UILabel!
     @IBOutlet weak var strengthLabel: UILabel!
@@ -30,10 +30,10 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = superhero.name
-        nameLabel.text = superhero.name
         avatarImageView.loadFrom(url: superhero.image.url)
         avatarImageView.roundCorners(radius: 24, maskToBounds: false)
         avatarImageView.setShadow()
+        alterEgosLabel.text = superhero.biography.alterEgos
         
         // Biography
         realNameLabel.text = superhero.biography.realName

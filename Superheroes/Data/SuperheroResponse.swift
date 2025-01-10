@@ -17,11 +17,13 @@ struct Biography: Codable {
     let publisher: String
     let alignment: String
     let placeOfBirth: String
+    let alterEgos: String
     
     private enum CodingKeys : String, CodingKey {
         case alignment, publisher
         case realName = "full-name"
         case placeOfBirth = "place-of-birth"
+        case alterEgos = "alter-egos"
     }
 }
 
